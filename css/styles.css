@@ -160,7 +160,7 @@ label{
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    height: 20vh;
+    height: auto;
     background-color: #021226;
     color: #D0D0D0 ;
     font-size: 1.2rem;
