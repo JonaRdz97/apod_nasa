@@ -64,3 +64,15 @@ button.addEventListener('click',function(){
         window.location = './index.html#apod'
     }
 }); 
+
+
+window.addEventListener("scroll",function(){
+    let content_title_date = document.getElementById('apod');
+    let screen_size = window.innerHeight;
+
+    if (content_title_date.getBoundingClientRect().top < screen_size) {
+        content_title_date.classList.add("visible");
+    } else {
+        content_title_date.classList.remove("visible");
+    }
+});

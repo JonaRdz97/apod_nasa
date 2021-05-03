@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&display=swap');
 
 html{
     scroll-behavior: smooth;
@@ -9,59 +9,64 @@ html{
 body{
     margin: 0;
     padding: 0;
-    font-family: 'Lora', serif;
-    font-size: 16px;
 }
 
 .header{
-    font-family: 'Varela Round', sans-serif;
-    display: grid;
-    grid-template-columns: 50% 50%;
-    background-color:#D93425;
-    height: auto;
+    font-family: 'Roboto Mono', monospace;
+    background-color: #FF5330;
     width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 .wave{
-    margin: 0;
+    margin: 0 0 5rem;
     padding: 0;
     width: 100%;
 }
 
+/*Contenedor para las letras y la imagen del header*/
+.container-header{
+    margin: 0;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+/*Letras para la palabra APOD del header*/
+.letter{
+    margin: auto;
+    font-size: 7rem;
+    color: #093F68;   
+}
+
 /*Imagen del header*/
 .rocket{
-    width: 80%;
-    height: auto;
-    margin: auto;
+    width: 30%;
 }
 
 /*Título del header*/
 h1{
+    margin: 10% auto 2rem;
+    text-align: center;
+    font-weight: bolder;
     font-size: 2.5rem;
-    color: white;
+    color: #093F68;
 }
 
-/*Descripción del header*/
-.info, .info > a{
-    text-align: justify;
-    font-size: 1.9rem;
-    color: white;
+main,#btn{
+    font-family: 'Roboto Slab', serif;
 }
-
-.text{
-    width: 90%;
-    height: auto;
-    margin: auto;
-}
-
 
 /*Boton consulta*/
 #btn{
     color: white;
+    font-weight: bold;
     background-color: #181E40;
     border: none;
     border-radius: 4px;
-    font-family: 'Lora', serif;
 }
 
 /*Contenedor relacionado a APOD*/
@@ -69,11 +74,11 @@ h1{
     display: grid;
     grid-template-columns: 50% 50%;
     margin: auto 5%;
-    padding-top: 40px;
 }
 
 /*Titulo APOD*/
 .title{
+    font-weight: 700;
     text-align: center;
     font-size: 2.5rem;
 }
@@ -86,10 +91,13 @@ h1{
 
 /*Contenerdor de titulo y fecha APOD*/
 .title-date{
+    opacity: 0;
+    transform: translate(-10vh, 0vh);
+    transition: all 1s;
+    padding: 10px;
     background-color: #021226;
     border-radius: 4px;
     color: white;
-    width: 90%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -106,7 +114,7 @@ h1{
 .media-img {
     grid-column: 1/-1;
     margin:  80px auto;
-    width: 85%;
+    width: 70%;
     height: auto;
     border-radius: 4px;
 }
@@ -115,7 +123,7 @@ h1{
 .media-video{
     grid-column: 1/-1;
     margin: 20px auto;
-    width: 90%;
+    width: 75%;
     height: auto;
 }
 
@@ -126,13 +134,15 @@ h1{
     align-items:center;
     flex-direction: column;
     height: auto;
-    margin-bottom: 20px;
+    margin-bottom: 3rem;
 }
+
 
 label{
     font-size: 1.4rem;
 }
 
+/*input de tipo date*/
 #date{
     font-size: 1.2rem;
     text-align: center;
@@ -140,7 +150,7 @@ label{
 
 #btn{
     margin-top: 5px;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     height: 60px;
 }
 
@@ -148,40 +158,38 @@ label{
     cursor: pointer;
 }
 
-.footer-content{
-    margin-top: 40px;
+footer{
+    color: white;
+    background-color: #261902;
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
-    height: auto;
-    background-color: #021226;
-    color: #D0D0D0 ;
+    height: 15vh;
+    margin: 2rem auto 0;
+    text-align: center;
+    font-family: 'Roboto Mono', monospace;
+    font-weight: 500;
     font-size: 1.1rem;
 }
 
-.github{
-    width: 55px;
-    height: 55px;
-}
+.visible {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
 
+
+/**MEDIA QUERYS***/
 @media only screen and (max-width: 600px) {
     html{
         font-size: 11px;
     }
-    
-    .text{
-        height: auto;
-        grid-column: 1/-1;
+
+    .header{
+        height: 60vh;
     }
 
-    h1{
-        text-align: center;
-    }
-
-    .rocket{
-        grid-column: 1/-1;
-        width: 70%;
+    .letter{
+        font-size: 5rem;
     }
 
     .title-date, .explanation{
@@ -191,6 +199,7 @@ label{
     }
 
     .media-img, .media-video{
+        width: 90%;
         margin: 2rem auto;
     }
 
@@ -201,31 +210,11 @@ label{
     #date, #btn{
         width: 60%;
     }
-
-    .github{
-        width: auto;
-        height: auto;
-    }
-    
 }
 
 @media only screen and (min-width: 601px) {
     html{
         font-size: 12px;
-    }
-    
-    .text{
-        grid-column: 1/-1;
-        height: auto;
-    }
-
-    h1{
-        text-align: center;
-    }
-
-    .rocket{
-        grid-column: 1/-1;
-        width: 60%;
     }
 
     .title-date, .explanation{
@@ -243,9 +232,12 @@ label{
     }
 
 }
-
  
 @media only screen and (min-width: 768px){
+    html{
+        font-size: 16px;
+    }
+
     .media-video{
         height: 500px;
     }
@@ -258,16 +250,7 @@ label{
  
 @media only screen and (min-width: 992px) {
     html{
-        font-size: 17px;
-    }
-
-    .text{
-        grid-column: span 1;
-    }
-
-    .rocket{
-        width: 90%;
-        grid-column: span 1;
+        font-size: 18px;
     }
 
     .title-date, .explanation{
@@ -286,20 +269,7 @@ label{
     }
 }
 
-
 @media only screen and (min-width: 1200px) {
-    html{
-        font-size: 17px;
-    }
-
-    h1{
-        text-align: justify;
-    }
-
-    .rocket{
-        width: 80%;
-    }
-
     #date, #btn{
         width: 25%;
     }
